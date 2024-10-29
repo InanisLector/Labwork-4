@@ -2,5 +2,7 @@
 
 int main()
 {
+    Labwork4::RunTasks();
+
     return 0;
 }
