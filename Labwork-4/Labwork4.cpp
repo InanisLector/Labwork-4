@@ -162,10 +162,14 @@ double Labwork4::Task2(int N)
 {
     double sum = 1.1;
 
-    for (int i = 1.2; i < N / 10 + 1; i += 0.1)
-        sum += i * (i % 2 ? -1 : 1);
+    for (int i = 2; i <= N; i++) {
+        if (i % 2)
+            sum -= 1 + i / 10.0;
+        else
+            sum += 1 + i / 10.0;
+    }
 
-    return 0;
+    return sum;
 }
 
 double Labwork4::Task2ol(int N) 
@@ -219,12 +223,12 @@ int Labwork4::Task3InputN(int& N)
 
 double Labwork4::Task3(double A, int N)
 {
-    double sum = A;
+    double sum = 0;
     double power = A;
 
     for (int i = 0; i < N; i++) {
-        power *= A * A;
         sum += power;
+        power *= A * A;
     }
 
     return sum;
@@ -276,13 +280,13 @@ int Labwork4::Task4InputN(int& N)
     return NO_EXCEPTION;
 }
 
-int Labwork4::Task4(double X, int N)
+double Labwork4::Task4(double X, int N)
 {
-    double quoficient = X;
+    double power = -1;
     double sum = 0;
 
     for (int i = 1; i <= N; i++)
-        sum += (quoficient *= (-X)) / N;
+        sum += (power *= (-X)) / i;
 
     return sum;
 }
@@ -333,7 +337,14 @@ std::vector<double> Labwork4::Task5(int N)
 {
     std::vector<double> sequenceMembers (N);
 
+    if (N == 0)
+        return sequenceMembers;
+
     sequenceMembers[0] = 1;
+
+    if(N == 1)
+        return sequenceMembers;
+
     sequenceMembers[1] = 2;
 
     for (int i = 2; i < N; i++)

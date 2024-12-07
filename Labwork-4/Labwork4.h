@@ -60,7 +60,7 @@ private:
 	static int Task4InputX(double& X);
 	static int Task4InputN(int& N);
 public:
-	static int Task4(double X, int N);
+	static double Task4(double X, int N);
 
 #pragma endregion
 
